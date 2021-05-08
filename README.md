@@ -1,0 +1,2 @@
+# Todo-blog-in-laravel-6
+Hi everyone , This project contains implementation of todo in laravel and u can change it to blog by just changing few blade files. This project contains from basic to advance so that all can learn better and contains add todo, edit todo, delete todo, login and register authentication system , with proper poc and best formatting of controller as in the professional project . I want to contribute this so that everyone can get benefit of useful and filtered information. Thanks

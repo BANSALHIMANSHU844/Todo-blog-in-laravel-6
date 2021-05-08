@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Providers;
+
+use App\Todo;
+use App\User;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport; // add this
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        'App\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    /**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerPolicies();
+        Passport::routes(); // Add this
+        Gate::define('update-post', function (User $user, Todo $todo) {
+            return $user->id === $todo->user_id;
+        });
+    }
+}
